@@ -1,28 +1,23 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <compBookListOne></compBookListOne>
+        <compBookListTwo></compBookListTwo>
+        <button @click="reduceprice" class="btn btn-primary">Reduce</button>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import compBookListOne from "./components/BookListOne"
+import compBookListTwo from "./components/BookListTwo"
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    components:{
+      compBookListOne,
+      compBookListTwo
+    },
+    methods:{
+        reduceprice(){
+            this.$store.commit('reduceprice')
+        }
+    }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
